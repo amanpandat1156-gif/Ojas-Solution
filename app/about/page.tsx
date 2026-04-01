@@ -9,7 +9,7 @@ export default function AboutPage() {
     <div className="min-h-screen bg-background relative overflow-hidden text-white w-full pb-24 md:pb-0">
       {/* Dynamic Background */}
       <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay pointer-events-none"></div>
-      <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-saffron/20 rounded-full blur-[120px] animate-pulse-glow" />
+      <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/20 rounded-full blur-[120px] animate-pulse-glow" />
       <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-calm-blue/20 rounded-full blur-[120px] animate-float" />
       
       {/* Decorative Dot Matrix layer */}
@@ -23,14 +23,14 @@ export default function AboutPage() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="text-center mb-16 w-full"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-saffron/30 bg-saffron/10 text-saffron mb-8 font-medium">
-            <span className="w-2 h-2 rounded-full bg-saffron animate-ping" />
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-primary/10 text-primary mb-8 font-medium">
+            <span className="w-2 h-2 rounded-full bg-primary animate-ping" />
             Made with Purpose
           </div>
           
           <h1 className="text-6xl md:text-8xl font-black tracking-tighter mb-6 bg-clip-text text-transparent bg-gradient-to-b from-white to-white/50">
             Designing <br className="hidden md:block" />
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-saffron via-saffron-light to-healing-green italic pr-2">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary via-primary to-healing-green italic pr-2">
               Safe Spaces.
             </span>
           </h1>
@@ -47,16 +47,16 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="md:col-span-2 glass-card p-8 md:p-12 relative overflow-hidden group hover:border-saffron/30 transition-colors duration-500"
+            className="md:col-span-2 glass-card p-8 md:p-12 relative overflow-hidden group hover:border-primary/30 transition-colors duration-500"
           >
-            <div className="absolute top-0 right-0 w-64 h-64 bg-saffron/10 rounded-full blur-[60px] group-hover:bg-saffron/20 transition-all duration-700 pointer-events-none" />
+            <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-[60px] group-hover:bg-primary/20 transition-all duration-700 pointer-events-none" />
             <h3 className="text-3xl font-bold mb-4">The Problem.</h3>
             <p className="text-text-secondary text-lg leading-relaxed max-w-lg mb-8">
               Millions are trapped by porn addiction and pill misuse, yet the stigma around "Gupta Rog" prevents them from seeking help. The modern internet offers no true safe harbors.
             </p>
             <div className="grid grid-cols-2 gap-4">
               <div className="border border-border/50 rounded-lg p-4 bg-white/5">
-                <span className="block text-2xl font-black text-saffron mb-1">70%+</span>
+                <span className="block text-2xl font-black text-primary mb-1">70%+</span>
                 <span className="text-sm text-text-muted font-medium">Youth (13-25) face addiction</span>
               </div>
               <div className="border border-border/50 rounded-lg p-4 bg-white/5">
@@ -98,13 +98,13 @@ export default function AboutPage() {
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">Meet Team Dark Horses</h2>
             <p className="text-text-secondary flex items-center justify-center gap-2 text-lg">
-              <MapPin size={18} className="text-saffron" /> BSA College of Engineering, Mathura
+              <MapPin size={18} className="text-primary" /> BSA College of Engineering, Mathura
             </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
             {[
-              { name: "Rudransha Gupta", role: "Ideation & Strategy" },
+              { name: "Shreya Sharma", role: "Ideation & Strategy" },
               { name: "Achal Kumar Sharma", role: "Ideation & Research" },
               { name: "Aman Sharma", role: "Design & Dev" },
               { name: "Nikhil Kumar", role: "Design & Dev" }
@@ -114,7 +114,7 @@ export default function AboutPage() {
                 key={i} 
                 className="glass-card p-6 text-center group"
               >
-                <div className="w-20 h-20 mx-auto bg-dark-surface border border-border/50 rounded-full flex items-center justify-center text-3xl mb-4 group-hover:scale-110 group-hover:border-saffron/50 transition-all duration-300">
+                <div className="w-20 h-20 mx-auto bg-dark-surface border border-border/50 rounded-full flex items-center justify-center text-3xl mb-4 group-hover:scale-110 group-hover:border-primary/50 transition-all duration-300">
                   {member.name.charAt(0)}
                 </div>
                 <h4 className="font-bold text-lg mb-1">{member.name}</h4>
@@ -129,11 +129,11 @@ export default function AboutPage() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="w-full glass-card border-saffron/30 bg-gradient-to-r from-saffron/10 to-transparent p-8 md:p-12 mb-32 flex flex-col md:flex-row items-center justify-between"
+          className="w-full glass-card border-primary/30 bg-gradient-to-r from-primary/10 to-transparent p-8 md:p-12 mb-32 flex flex-col md:flex-row items-center justify-between"
         >
           <div className="mb-6 md:mb-0">
             <h2 className="text-3xl font-bold mb-2 flex items-center gap-3">
-              <Heart className="text-saffron" fill="currentColor" /> Need immediate help?
+              <Heart className="text-primary" fill="currentColor" /> Need immediate help?
             </h2>
             <p className="text-text-secondary max-w-md">Our crisis detection AI works 24/7, but you can always reach out directly.</p>
           </div>

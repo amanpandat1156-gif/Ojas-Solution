@@ -1,16 +1,17 @@
 "use client";
 
 import { useState } from "react";
-import { Heart, MessageCircle, Share2, Bookmark, AlertTriangle, Leaf, Stethoscope, BookOpen, Bot, MoreVertical, Flag, BellOff, Award } from "lucide-react";
+import { Heart, MessageCircle, Share2, Bookmark, AlertTriangle, Leaf, Stethoscope, BookOpen, Bot, MoreVertical, Flag, BellOff, Award, Trash2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export type AISummary = {
   insight?: string;
   warning?: string;
   ayurvedic?: string[];
+  lifestyle?: string;
   medical?: string;
   sources?: string;
-  level: "info" | "warning" | "critical";
+  level: "info" | "warning" | "critical" | "success";
 };
 
 export type Post = {
@@ -28,7 +29,17 @@ export type Post = {
   replies?: { id: string; author: string; avatar: string; content: string; timeAgo: string; }[];
 };
 
-export function PostItem({ post }: { post: Post }) {
+export function PostItem({ 
+  post,
+  onUpvote,
+  onReply,
+  onDelete
+}: { 
+  post: Post,
+  onUpvote?: (postId: string, currentUpvotes: number, upvoting: boolean) => void,
+  onReply?: (postId: string, content: string) => void,
+  onDelete?: (postId: string) => void
+}) {
   const [upvoted, setUpvoted] = useState(false);
   const [upvotesCount, setUpvotesCount] = useState(post.upvotes);
   const [showComments, setShowComments] = useState(false);
@@ -94,7 +105,10 @@ export function PostItem({ post }: { post: Post }) {
                 <button onClick={() => setShowMenu(false)} className="w-full text-left px-4 py-3 text-sm text-text-secondary hover:text-white hover:bg-white/5 flex items-center gap-3 transition-colors">
                   <BellOff size={16} /> Mute Topic
                 </button>
-                <button onClick={() => setShowMenu(false)} className="w-full text-left px-4 py-3 text-sm text-critical-red hover:bg-critical-red/10 flex items-center gap-3 transition-colors">
+                <button onClick={() => { setShowMenu(false); onDelete?.(post.id); }} className="w-full text-left px-4 py-3 text-sm text-critical-red hover:bg-critical-red/10 flex items-center gap-3 transition-colors">
+                  <Trash2 size={16} /> Delete Post
+                </button>
+                <button onClick={() => setShowMenu(false)} className="w-full text-left px-4 py-3 text-sm text-warning-red hover:bg-warning-red/10 flex items-center gap-3 transition-colors">
                   <Flag size={16} /> Report Content
                 </button>
               </motion.div>
@@ -152,6 +166,13 @@ export function PostItem({ post }: { post: Post }) {
                     ))}
                   </ul>
                 </div>
+              </div>
+            )}
+
+            {post.aiSummary.lifestyle && (
+              <div className="flex gap-2">
+                <span className="shrink-0 mt-0.5">🌱</span>
+                <p className="text-text-secondary"><span className="font-bold text-saffron">Lifestyle: </span>{post.aiSummary.lifestyle}</p>
               </div>
             )}
 

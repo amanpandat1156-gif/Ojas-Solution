@@ -29,7 +29,7 @@ const TypewriterText = ({ text, delay = 0, className = "" }: { text: string, del
   return (
     <span className={`inline-block relative ${className}`}>
       {displayedText}
-      <span className={`absolute -right-4 md:-right-8 text-saffron ${index === text.length ? "animate-pulse" : "opacity-100"} ${index === text.length && delay > 0 ? "hidden" : ""}`}>_</span>
+      <span className={`absolute -right-4 md:-right-8 text-primary ${index === text.length ? "animate-pulse" : "opacity-100"} ${index === text.length && delay > 0 ? "hidden" : ""}`}>_</span>
     </span>
   );
 };
@@ -40,10 +40,10 @@ export default function Home() {
   const yElement = useTransform(scrollYProgress, [0, 1], [0, 200]);
 
   return (
-    <div className="h-screen overflow-y-scroll snap-y snap-mandatory bg-background relative overflow-x-hidden text-white w-full selection:bg-saffron selection:text-deep-navy scroll-smooth">
+    <div className="h-screen overflow-y-scroll snap-y snap-mandatory bg-background relative overflow-x-hidden text-white w-full selection:bg-primary selection:text-deep-navy scroll-smooth">
       {/* Antigravity Dynamic Background Wrapper */}
       <div className="fixed inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 mix-blend-overlay pointer-events-none z-50"></div>
-      <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-saffron/20 rounded-full blur-[150px] animate-pulse-glow pointer-events-none" />
+      <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/20 rounded-full blur-[150px] animate-pulse-glow pointer-events-none" />
       <div className="absolute top-[40%] right-[-10%] w-[30%] h-[30%] bg-calm-blue/20 rounded-full blur-[120px] animate-float pointer-events-none" />
       <div className="absolute bottom-[-10%] left-[20%] w-[40%] h-[40%] bg-healing-green/10 rounded-full blur-[150px] animate-pulse-glow pointer-events-none" style={{ animationDelay: "2s" }} />
 
@@ -61,9 +61,9 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-saffron/30 bg-saffron/10 text-saffron mb-8 font-medium text-sm tracking-wide shadow-[0_0_15px_rgba(244,160,36,0.15)]"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-primary/10 text-primary mb-8 font-medium text-sm tracking-wide shadow-[0_0_15px_rgba(0,255,255,0.15)]"
           >
-            <span className="w-2 h-2 rounded-full bg-saffron animate-ping" />
+            <span className="w-2 h-2 rounded-full bg-primary animate-ping" />
             Zero Data Collection. 100% Anonymity.
           </motion.div>
 
@@ -75,7 +75,7 @@ export default function Home() {
                 initial={{ opacity: 0, filter: "blur(10px)" }}
                 animate={{ opacity: 1, filter: "blur(0px)" }}
                 transition={{ duration: 1.2, delay: 2.0 }}
-                className="bg-clip-text text-transparent bg-gradient-to-r from-saffron via-saffron-light to-healing-green italic pr-4"
+                className="bg-clip-text text-transparent bg-gradient-to-r from-primary via-primary to-healing-green italic pr-4"
               >
                 HEAL ANONYMOUSLY.
               </motion.span>
@@ -87,10 +87,10 @@ export default function Home() {
                 transition={{ duration: 1.5, delay: 2.5 }}
                 className="relative w-16 h-16 md:w-24 md:h-24 flex items-center justify-center shrink-0 ml-2"
               >
-                <div className="absolute inset-0 bg-gradient-to-tr from-saffron/20 to-healing-green/20 rounded-full blur-[20px] animate-pulse-glow" />
+                <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-healing-green/20 rounded-full blur-[20px] animate-pulse-glow" />
                 <motion.div animate={{ rotate: 360 }} transition={{ duration: 40, repeat: Infinity, ease: "linear" }} className="absolute inset-0 border border-white/20 rounded-full border-dashed" />
-                <motion.div animate={{ rotate: -360 }} transition={{ duration: 20, repeat: Infinity, ease: "linear" }} className="absolute inset-1 border border-saffron/40 rounded-full border-t-saffron border-r-transparent" />
-                <Shield className="text-saffron w-6 h-6 md:w-10 md:h-10 absolute drop-shadow-[0_0_15px_rgba(244,160,36,0.8)]" strokeWidth={2} />
+                <motion.div animate={{ rotate: -360 }} transition={{ duration: 20, repeat: Infinity, ease: "linear" }} className="absolute inset-1 border border-primary/40 rounded-full border-t-primary border-r-transparent" />
+                <Shield className="text-primary w-6 h-6 md:w-10 md:h-10 absolute drop-shadow-[0_0_15px_rgba(0,255,255,0.8)]" strokeWidth={2} />
                 
                 <motion.div animate={{ y: [-5, 5, -5] }} transition={{ duration: 4, repeat: Infinity }} className="absolute -top-3 -left-3 md:-top-2 md:-left-2 w-6 h-6 md:w-8 md:h-8 bg-calm-blue/20 backdrop-blur-md border border-calm-blue/40 rounded-full flex items-center justify-center shadow-[0_0_10px_rgba(46,204,113,0.3)]"><BrainCircuit className="text-calm-blue w-3 h-3 xl:w-4 xl:h-4"/></motion.div>
                 <motion.div animate={{ y: [5, -5, 5] }} transition={{ duration: 5, repeat: Infinity }} className="absolute -bottom-3 -right-3 md:-bottom-2 md:-right-2 w-6 h-6 md:w-8 md:h-8 bg-healing-green/20 backdrop-blur-md border border-healing-green/40 rounded-full flex items-center justify-center shadow-[0_0_10px_rgba(46,204,113,0.3)]"><Leaf className="text-healing-green w-3 h-3 xl:w-4 xl:h-4"/></motion.div>
@@ -112,7 +112,7 @@ export default function Home() {
             <div className="relative group w-full sm:w-auto">
               <button
                 onClick={() => setShowOnboarding(true)}
-                className="relative flex items-center justify-center px-8 py-5 md:py-4 font-bold text-deep-navy bg-saffron rounded-full overflow-hidden transition-all hover:scale-105 shadow-[0_0_40px_rgba(244,160,36,0.3)] hover:shadow-[0_0_60px_rgba(244,160,36,0.6)] w-full sm:w-auto"
+                className="relative flex items-center justify-center px-8 py-5 md:py-4 font-bold text-deep-navy bg-primary rounded-full overflow-hidden transition-all hover:scale-105 shadow-[0_0_40px_rgba(0,255,255,0.3)] hover:shadow-[0_0_60px_rgba(0,255,255,0.6)] w-full sm:w-auto"
               >
                 <span className="relative z-10 flex items-center justify-center gap-2 text-lg w-full">
                   Enter Anonymously <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
@@ -125,7 +125,7 @@ export default function Home() {
                 <div className="bg-dark-surface/95 backdrop-blur-xl border border-white/10 rounded-xl p-4 shadow-[0_20px_40px_rgba(0,0,0,0.5)] flex flex-col gap-2.5 relative">
                   <div className="hidden sm:block absolute -bottom-2 left-1/2 -translate-x-1/2 border-8 border-transparent border-t-dark-surface/95" />
                   <div className="sm:hidden block absolute -top-2 left-1/2 -translate-x-1/2 border-8 border-transparent border-b-dark-surface/95" />
-                  <p className="text-xs text-white/90 flex items-center gap-2 font-medium"><Lock size={14} className="text-saffron shrink-0"/> 1. No names or emails required</p>
+                  <p className="text-xs text-white/90 flex items-center gap-2 font-medium"><Lock size={14} className="text-primary shrink-0"/> 1. No names or emails required</p>
                   <p className="text-xs text-white/90 flex items-center gap-2 font-medium"><ShieldCheck size={14} className="text-healing-green shrink-0"/> 2. Data stored locally</p>
                   <p className="text-xs text-white/90 flex items-center gap-2 font-medium"><Leaf size={14} className="text-calm-blue shrink-0"/> 3. Freedom to heal safely</p>
                 </div>
@@ -157,7 +157,7 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="text-center w-full max-w-2xl"
           >
-            <h2 className="text-2xl md:text-4xl font-black leading-tight tracking-tight mb-3 text-white">See healing in <span className="text-saffron">real-time.</span></h2>
+            <h2 className="text-2xl md:text-4xl font-black leading-tight tracking-tight mb-3 text-white">See healing in <span className="text-primary">real-time.</span></h2>
             <p className="text-text-secondary text-sm md:text-base leading-relaxed">Watch how the anonymous community and our Ojas AI Consultant work together to guide you without anyone ever knowing who you are.</p>
           </motion.div>
 
@@ -193,7 +193,7 @@ export default function Home() {
               {/* Fallback overlay incase video is missing */}
               <div className="absolute inset-0 top-[24px] sm:top-[32px] flex items-center justify-center bg-gradient-to-br from-dark-surface to-background overflow-hidden border-t border-white/5">
                 <span className="relative z-10 text-white/30 text-[10px] sm:text-xs font-medium tracking-widest text-center px-2 leading-relaxed">
-                  <Activity className="w-6 h-6 mx-auto mb-1 opacity-50 text-saffron" />
+                  <Activity className="w-6 h-6 mx-auto mb-1 opacity-50 text-primary" />
                   <br/>DROP <span className="text-white">"preview.mp4"</span> HERE
                 </span>
                 <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay pointer-events-none"></div>
@@ -241,10 +241,10 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
           {/* Feature 1 */}
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="lg:col-span-2 glass-card p-10 relative overflow-hidden group hover:border-saffron/30 transition-colors">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-saffron/10 rounded-full blur-[60px] group-hover:bg-saffron/20 transition-all duration-500" />
-            <div className="w-14 h-14 bg-saffron/10 rounded-2xl flex items-center justify-center mb-6">
-              <BrainCircuit className="text-saffron" size={28} />
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="lg:col-span-2 glass-card p-10 relative overflow-hidden group hover:border-primary/30 transition-colors">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-[60px] group-hover:bg-primary/20 transition-all duration-500" />
+            <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mb-6">
+              <BrainCircuit className="text-primary" size={28} />
             </div>
             <h3 className="text-2xl font-bold mb-3 text-white">Ojas AI Consultant</h3>
             <p className="text-text-secondary leading-relaxed max-w-md mb-8">
@@ -252,7 +252,7 @@ export default function Home() {
             </p>
             <div className="p-4 bg-dark-surface border border-border/50 rounded-xl relative z-10 w-full max-w-md">
                <div className="flex gap-3 items-start">
-                 <div className="w-8 h-8 rounded-full bg-saffron/20 flex items-center justify-center text-saffron shrink-0"><BrainCircuit size={16} /></div>
+                 <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary shrink-0"><BrainCircuit size={16} /></div>
                  <p className="text-sm text-white/90">"I noticed you're feeling anxious tonight. Taking Ashwagandha root with warm milk might help ground your nervous system. Would you like to talk about why you're stressed?"</p>
                </div>
             </div>
@@ -289,9 +289,9 @@ export default function Home() {
           </motion.div>
 
           {/* Feature 4 */}
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }} className="lg:col-span-2 glass-card p-10 relative overflow-hidden group hover:border-saffron/30 transition-colors">
-            <div className="w-14 h-14 bg-saffron/10 rounded-2xl flex items-center justify-center mb-6">
-              <Activity className="text-saffron" size={28} />
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }} className="lg:col-span-2 glass-card p-10 relative overflow-hidden group hover:border-primary/30 transition-colors">
+            <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mb-6">
+              <Activity className="text-primary" size={28} />
             </div>
             <h3 className="text-2xl font-bold mb-3 text-white">Gamified Streaks & Profiles</h3>
             <p className="text-text-secondary leading-relaxed max-w-md mb-8">
@@ -300,9 +300,9 @@ export default function Home() {
             <div className="flex items-end gap-3 opacity-50 group-hover:opacity-100 transition-opacity">
               <div className="w-8 h-12 bg-white/20 rounded-t-sm" />
               <div className="w-8 h-20 bg-white/40 rounded-t-sm" />
-              <div className="w-8 h-24 bg-saffron/60 rounded-t-sm" />
-              <div className="w-8 h-32 bg-saffron rounded-t-sm" />
-              <div className="w-8 h-28 bg-saffron rounded-t-sm" />
+              <div className="w-8 h-24 bg-primary/60 rounded-t-sm" />
+              <div className="w-8 h-32 bg-primary rounded-t-sm" />
+              <div className="w-8 h-28 bg-primary rounded-t-sm" />
             </div>
           </motion.div>
 
@@ -321,7 +321,7 @@ export default function Home() {
         <p className="text-xl text-text-secondary mb-10 max-w-2xl mx-auto">Skip the email. Skip the password. Just click below and enter your private sanctuary.</p>
         <button
           onClick={() => setShowOnboarding(true)}
-          className="group relative inline-flex items-center justify-center px-10 py-5 font-bold text-deep-navy bg-saffron rounded-full overflow-hidden transition-all hover:scale-105 shadow-[0_0_40px_rgba(244,160,36,0.3)]"
+          className="group relative inline-flex items-center justify-center px-10 py-5 font-bold text-deep-navy bg-primary rounded-full overflow-hidden transition-all hover:scale-105 shadow-[0_0_40px_rgba(0,255,255,0.3)]"
         >
           <span className="relative z-10 flex items-center gap-2 text-xl tracking-wide uppercase">
             Start Your Journey <ArrowRight size={24} className="group-hover:translate-x-1 transition-transform" />

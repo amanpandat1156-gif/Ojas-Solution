@@ -5,19 +5,19 @@
 
 :root {
   /* Ojas Circle Theme - Light mode base */
-  --background: oklch(0.98 0.005 270);
-  --foreground: oklch(0.15 0.02 270);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.15 0.02 270);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.15 0.02 270);
-  --primary: oklch(0.72 0.18 75); /* Saffron gold */
+  --background: #050505;
+  --foreground: #ffffff;
+  --card: #050505;
+  --card-foreground: #ffffff;
+  --popover: #050505;
+  --popover-foreground: #ffffff;
+  --primary: #00FFFF; /* Aqua mapped to primary */
   --primary-foreground: oklch(0.15 0.02 270);
   --secondary: oklch(0.65 0.18 155); /* Healing green */
   --secondary-foreground: oklch(1 0 0);
   --muted: oklch(0.95 0.01 270);
   --muted-foreground: oklch(0.5 0.02 270);
-  --accent: oklch(0.62 0.12 250); /* Calm blue */
+  --accent: #00FFFF; /* Aqua mapped to accent */
   --accent-foreground: oklch(1 0 0);
   --destructive: oklch(0.55 0.22 25);
   --destructive-foreground: oklch(1 0 0);
@@ -32,10 +32,11 @@
   --radius: 0.75rem;
   
   /* Custom Ojas tokens - New Palette: Midnight & Dawn */
-  --saffron: oklch(0.75 0.14 65); /* Warm Sunrise Peach */
-  --saffron-light: oklch(0.85 0.1 65);
+  --aqua: #00FFFF;
+  --saffron: #00FFFF; /* Remapped to Aqua */
+  --saffron-light: #aaffff; /* Remapped to light Aqua */
   --healing-green: oklch(0.75 0.12 165); /* Soft Mint/Teal */
-  --calm-blue: oklch(0.68 0.14 285); /* Soft Lavender */
+  --calm-blue: #00FFFF; /* Remapped to Aqua */
   --deep-navy: oklch(0.14 0.02 200); /* Deep Midnight/Ocean */
   --dark-surface: oklch(0.18 0.02 200);
   --card-bg: oklch(0.20 0.02 200);
@@ -53,25 +54,25 @@
 }
 
 .dark {
-  --background: oklch(0.14 0.02 200); /* Deep Midnight */
-  --foreground: oklch(0.98 0.01 200);
+  --background: #050505; /* Deep Black */
+  --foreground: #ffffff; /* Pure White */
   --card: oklch(0.18 0.02 200); /* Dark surface */
-  --card-foreground: oklch(0.98 0.01 200);
+  --card-foreground: #ffffff;
   --popover: oklch(0.18 0.02 200);
-  --popover-foreground: oklch(0.98 0.01 200);
-  --primary: oklch(0.75 0.14 65); /* Warm Sunrise Peach */
+  --popover-foreground: #ffffff;
+  --primary: #00FFFF; /* Remapped to Aqua */
   --primary-foreground: oklch(0.14 0.02 200);
   --secondary: oklch(0.75 0.12 165); /* Soft Mint/Teal */
   --secondary-foreground: oklch(0.14 0.02 200);
   --muted: oklch(0.22 0.02 200);
   --muted-foreground: oklch(0.65 0.02 200);
-  --accent: oklch(0.68 0.14 285);
-  --accent-foreground: oklch(0.98 0.01 200);
+  --accent: #00FFFF; /* Remapped to Aqua */
+  --accent-foreground: #ffffff;
   --destructive: oklch(0.45 0.2 25);
-  --destructive-foreground: oklch(0.98 0.01 200);
+  --destructive-foreground: #ffffff;
   --border: oklch(0.28 0.02 200);
   --input: oklch(0.22 0.02 200);
-  --ring: oklch(0.75 0.14 65);
+  --ring: #00FFFF;
   --chart-1: oklch(0.75 0.14 65);
   --chart-2: oklch(0.75 0.12 165);
   --chart-3: oklch(0.68 0.14 285);
@@ -129,6 +130,7 @@
   --color-sidebar-ring: var(--sidebar-ring);
   
   /* Custom Ojas color tokens */
+  --color-aqua: var(--aqua);
   --color-saffron: var(--saffron);
   --color-saffron-light: var(--saffron-light);
   --color-healing-green: var(--healing-green);
@@ -160,7 +162,7 @@
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(0, 255, 255, 0.1);
   border-radius: 20px;
   box-shadow: 
     0 8px 32px rgba(0, 0, 0, 0.3),
@@ -171,14 +173,14 @@
 .glass-card:hover {
   transform: translateY(-4px);
   box-shadow: 
-    0 20px 60px rgba(244, 160, 36, 0.15),
+    0 20px 60px rgba(0, 255, 255, 0.15),
     inset 0 1px 0 rgba(255, 255, 255, 0.2);
-  border-color: rgba(244, 160, 36, 0.3);
+  border-color: rgba(0, 255, 255, 0.3);
 }
 
 /* Glow effects */
 .glow-saffron {
-  box-shadow: 0 0 30px rgba(244, 160, 36, 0.3);
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
 }
 
 .glow-green {
@@ -215,10 +217,10 @@
 /* Pulse glow animation */
 @keyframes pulse-glow {
   0%, 100% {
-    box-shadow: 0 0 20px rgba(244, 160, 36, 0.3);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
   }
   50% {
-    box-shadow: 0 0 40px rgba(244, 160, 36, 0.5);
+    box-shadow: 0 0 40px rgba(0, 255, 255, 0.5);
   }
 }
 
@@ -228,7 +230,7 @@
 
 /* Gradient text */
 .gradient-text {
-  background: linear-gradient(135deg, #F4A024 0%, #2ECC71 100%);
+  background: linear-gradient(135deg, #00FFFF 0%, #2ECC71 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

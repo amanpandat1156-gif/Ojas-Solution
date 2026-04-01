@@ -5,6 +5,7 @@ import { PostComposer } from "@/components/feed/post-composer";
 import { PostItem, Post } from "@/components/feed/post-item";
 import { Flame, Sparkles, Clock, Hash, TrendingUp, ShieldAlert, Award, ArrowRight, Search, Stethoscope } from "lucide-react";
 import { motion } from "framer-motion";
+import { usePosts } from "@/hooks/use-posts";
 
 const feedTabs = [
   { id: "trending", label: "Trending", icon: Flame },
@@ -14,69 +15,92 @@ const feedTabs = [
 
 const mockPosts: Post[] = [
   {
-    id: "1",
-    author: { name: "CalmTiger_88", avatar: "🦁" },
-    content: "Porn se depression ho raha hai. 3 saal se try kar raha hu chhodni. Koi genuine help?",
+    id: "m1",
+    author: { name: "Aranya_H", avatar: "🌸" },
+    content: "My irregular cycles and intense fatigue from PCOS are getting out of hand. Does anyone have natural ways to manage this?",
     timeAgo: "2h ago",
-    tag: "Addiction",
-    upvotes: 42,
-    comments: 4,
-    aiSummary: {
-      level: "warning",
-      insight: "Porn addiction linked to dopamine desensitization → depression is common.",
-      ayurvedic: [
-        "Ashwagandha (300mg twice daily)",
-        "Pranayama: Anulom Vilom 15 min/morning",
-        "Brahmacharya practice: Cold water therapy"
-      ],
-      medical: "If depression persists 2+ weeks, consult a professional.",
-      sources: "Charaka Samhita, NIMHANS study"
-    },
-    replies: [
-      { id: "c1", author: "BraveMonk_41", avatar: "🛡️", content: "Stay strong brother. The first 14 days are the hardest. Try replacing that habit with a 10-minute walk outside or 20 pushups.", timeAgo: "1h ago" },
-      { id: "c2", author: "HealingTree_99", avatar: "🌳", content: "Ashwagandha definitely helped me sleep better during my early recovery days. Make sure you don't take it on an empty stomach.", timeAgo: "45m ago" },
-      { id: "c3", author: "ZenMaster_01", avatar: "🧘", content: "It's all about triggers. What time do you usually relapse? Change your routine at that exact hour. Delete those apps temporarily.", timeAgo: "20m ago" },
-      { id: "c4", author: "CalmTiger_88", avatar: "🦁", content: "Usually late at night when I'm alone in my room. Going to try keeping my phone charging outside the room tonight.", timeAgo: "5m ago" }
-    ]
-  },
-  {
-    id: "3",
-    author: { name: "BraveMonk_41", avatar: "🛡️" },
-    content: "Day 30 of my NoFap challenge completed! 🎉 First 2 weeks were brutal but now my mind is so clear. Cold showers and early morning jogs saved me.",
-    timeAgo: "12h ago",
-    tag: "Self-Improvement",
-    upvotes: 312,
-    comments: 3,
-    replies: [
-      { id: "c5", author: "SilentTiger_29", avatar: "🐯", content: "Huge motivation! I relapsed on day 12 but I am starting again today. Need this kind of clarity.", timeAgo: "10h ago" },
-      { id: "c6", author: "Seeker_77", avatar: "🚶", content: "Did you experience a flatline? I'm on day 18 and feeling zero energy and no motivation. Is this normal?", timeAgo: "8h ago" },
-      { id: "c7", author: "BraveMonk_41", avatar: "🛡️", content: "Yes! Flatlines hit hard around week 2-3. It's just your brain re-wiring its dopamine receptors. Push through, the energy returns 10x stronger by week 4.", timeAgo: "2h ago" }
-    ]
-  },
-  {
-    id: "4",
-    author: { name: "Moonlight_99", avatar: "🌙" },
-    content: "My period cramps are unbearable this month and PCOD makes everything so irregular. Pls suggest some natural pain relief that actually works?",
-    timeAgo: "3h ago",
     tag: "Women's Health",
-    upvotes: 89,
-    comments: 4,
+    upvotes: 145,
+    comments: 12,
     aiSummary: {
       level: "info",
-      ayurvedic: [
-        "Shatavari (balances hormones)",
-        "Warm ginger and carom seeds (Ajwain) tea for cramps",
-        "Gentle Baddha Konasana (Butterfly pose)"
-      ],
-      medical: "If pain is extremely severe, consult a gynecologist for endometriosis/PCOS evaluation.",
-      sources: "Ayurvedic Pharmacopoeia"
-    },
-    replies: [
-      { id: "c8", author: "LotusHealer_22", avatar: "🪷", content: "Ajwain tea with a bit of ginger and jaggery always helps my cramps instantly! Hot water bag is an absolute must.", timeAgo: "2h ago" },
-      { id: "c9", author: "DocAnon_33", avatar: "🩺", content: "If you have diagnosed PCOD, managing periods requires serious lifestyle changes alongside diet. Try to reduce dairy and refined sugar entirely during your cycle.", timeAgo: "1h ago" },
-      { id: "c10", author: "Moonlight_99", avatar: "🌙", content: "Thank you guys 😭 Will try the Ajwain tea right now. The pain is just so exhausting today.", timeAgo: "30m ago" },
-      { id: "c11", author: "SafeSpace_1", avatar: "🤍", content: "Sending hugs. PCOD is a constant hidden battle. Remember to be gentle with your body today and just rest.", timeAgo: "15m ago" }
-    ]
+      insight: "PCOS is complex but natural management is highly effective.",
+      ayurvedic: ["Shatavari (balances hormones)", "Kanchanar Guggulu"],
+      lifestyle: "Try seed cycling and significantly reduce refined sugar.",
+      medical: "Please ensure you get an ultrasound and a detailed hormonal profile."
+    }
+  },
+  {
+    id: "m2",
+    author: { name: "ExamWarrior", avatar: "📚" },
+    content: "I have exams next week and the brain fog and stress are literally paralyzing me. Help!",
+    timeAgo: "4h ago",
+    tag: "Anxiety Help",
+    upvotes: 210,
+    comments: 8,
+    aiSummary: {
+      level: "success",
+      insight: "Exam stress often triggers brain fog. Grounding is key.",
+      ayurvedic: ["Brahmi or Shankhpushpi for focus", "Warm milk with a pinch of nutmeg before bed"],
+      lifestyle: "Study in 45-minute blocks with 10-minute movement breaks."
+    }
+  },
+  {
+    id: "m3",
+    author: { name: "ClaritySeeker", avatar: "🛡️" },
+    content: "Day 60 of NoFap. The urges are still there sometimes, but my mental clarity and energy levels are insane right now. Keep going guys!",
+    timeAgo: "5h ago",
+    tag: "NoFap Journey",
+    upvotes: 432,
+    comments: 24,
+    aiSummary: {
+      level: "success",
+      insight: "Congratulations! 60 days is a major milestone for neuroplasticity.",
+      lifestyle: "Channel this new energy into physical training or creative pursuits."
+    }
+  },
+  {
+    id: "m4",
+    author: { name: "DigitalNomad", avatar: "📱" },
+    content: "My chronic anxiety peaks when I scroll reels. What's a realistic digital detox routine that won't make me feel isolated?",
+    timeAgo: "8h ago",
+    tag: "Mental Health",
+    upvotes: 189,
+    comments: 15,
+    aiSummary: {
+      level: "info",
+      insight: "Short-form content spikes cortisol and fragments attention.",
+      lifestyle: "Try a 'Screen-Free Morning'—no phone for the first hour after waking."
+    }
+  },
+  {
+    id: "m5",
+    author: { name: "SleeplessYogi", avatar: "🧘" },
+    content: "I keep waking up at 3 AM and can't go back to sleep. Heard it's a Vata imbalance. How do I fix this 'Tridosha' issue?",
+    timeAgo: "12h ago",
+    tag: "Ayurveda",
+    upvotes: 87,
+    comments: 9,
+    aiSummary: {
+      level: "info",
+      insight: "3 AM to 5 AM is the Vata time of day, often causing restless awakenings.",
+      ayurvedic: ["Rub sesame oil on the soles of your feet before bed"],
+      lifestyle: "Avoid screens and heavy meals after 8 PM."
+    }
+  },
+  {
+    id: "m6",
+    author: { name: "MorningSun", avatar: "☀️" },
+    content: "Started doing 12 rounds of Surya Namaskar at sunrise. The difference in my focus and mood throughout the day is unbelievable.",
+    timeAgo: "1d ago",
+    tag: "Meditation",
+    upvotes: 520,
+    comments: 31,
+    aiSummary: {
+      level: "success",
+      insight: "Surya Namaskar is a complete mind-body workout that balances all doshas.",
+      lifestyle: "Pair it with 5 minutes of mindful breathing (Pranayama) afterwards."
+    }
   }
 ];
 
@@ -90,20 +114,14 @@ const trendingTags = [
 
 export default function FeedPage() {
   const [activeTab, setActiveTab] = useState("trending");
-  const [posts, setPosts] = useState<Post[]>(mockPosts);
+  const { posts, loading, addPost, deletePost, toggleUpvote, addReply } = usePosts();
 
   const handleAddPost = (content: string, tag: string) => {
-    const newPost: Post = {
-      id: Date.now().toString(),
-      author: { name: "BraveMonk_4421", avatar: "🛡️" }, 
-      content,
-      tag,
-      timeAgo: "Just now",
-      upvotes: 0,
-      comments: 0,
-      replies: []
-    };
-    setPosts([newPost, ...posts]);
+    addPost(content, tag, { name: "BraveMonk_4421", avatar: "🛡️" });
+  };
+
+  const handleReply = (postId: string, content: string) => {
+    addReply(postId, content, "BraveMonk_4421", "🛡️");
   };
 
   return (
@@ -140,7 +158,7 @@ export default function FeedPage() {
                        onClick={() => setActiveTab(tab.id)}
                        className={`shrink-0 flex items-center gap-2 px-5 py-2 rounded-full font-bold text-sm transition-all duration-300 ${
                          isActive
-                           ? "bg-saffron text-deep-navy shadow-[0_0_15px_rgba(244,160,36,0.3)]"
+                           ? "bg-primary text-deep-navy shadow-[0_0_15px_rgba(0,255,255,0.3)]"
                            : "text-text-secondary hover:text-white hover:bg-white/5"
                        }`}
                      >
@@ -158,14 +176,28 @@ export default function FeedPage() {
           </motion.div>
 
           <div className="space-y-6">
-            {posts.map((post, i) => (
+            {loading ? (
+              <div className="text-center text-text-muted py-8 flex flex-col items-center">
+                <div className="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin mb-4" />
+                <p>Loading real-time feed...</p>
+              </div>
+            ) : [...posts, ...mockPosts].length === 0 ? (
+               <div className="text-center text-text-muted py-8">
+                 No posts yet. Be the first to start a conversation!
+               </div>
+            ) : [...posts, ...mockPosts].map((post, i) => (
               <motion.div 
                 key={post.id} 
                 initial={{ opacity: 0, y: 20 }} 
                 animate={{ opacity: 1, y: 0 }} 
                 transition={{ duration: 0.4, delay: i * 0.1 }}
               >
-                <PostItem post={post} />
+                <PostItem 
+                  post={post} 
+                  onUpvote={toggleUpvote}
+                  onReply={handleReply}
+                  onDelete={deletePost}
+                />
               </motion.div>
             ))}
           </div>
@@ -175,16 +207,16 @@ export default function FeedPage() {
         <div className="hidden lg:flex flex-col w-80 shrink-0 space-y-6 sticky top-24">
           
           {/* Daily Streak Mini-Widget */}
-          <div className="glass-card p-6 border-saffron/30 bg-gradient-to-b from-saffron/5 to-transparent">
+          <div className="glass-card p-6 border-primary/30 bg-gradient-to-b from-primary/5 to-transparent">
              <div className="flex items-center gap-3 mb-2">
-               <div className="w-10 h-10 rounded-full bg-saffron/20 flex items-center justify-center">
-                 <Award className="text-saffron" size={20} />
+               <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
+                 <Award className="text-primary" size={20} />
                </div>
                <div>
                   <h3 className="text-sm text-text-muted font-bold tracking-wider uppercase">My Streak</h3>
                   <div className="flex items-center gap-2">
                     <span className="text-2xl font-black text-white">45</span>
-                    <span className="text-saffron font-bold">Days 🔥</span>
+                    <span className="text-primary font-bold">Days 🔥</span>
                   </div>
                </div>
              </div>
@@ -236,9 +268,9 @@ export default function FeedPage() {
 
       {/* Sticky Medical Disclaimer Footer */}
       <div className="fixed bottom-0 left-0 right-0 z-50 bg-dark-surface/95 backdrop-blur-xl border-t border-white/5 py-2.5 px-4 sm:px-6 shadow-[0_-10px_30px_rgba(0,0,0,0.5)] flex items-center justify-center gap-3 w-full animate-fade-in-up">
-        <Stethoscope className="text-calm-blue shrink-0 hidden sm:block" size={16} />
+        <Stethoscope className="text-primary shrink-0 hidden sm:block" size={16} />
         <p className="text-[10px] sm:text-[11px] text-text-secondary text-center max-w-4xl leading-snug">
-           <strong className="text-white uppercase tracking-wider">Disclaimer:</strong> Ojas AI provides educational insights based on traditional Ayurvedic texts and broad psychological frameworks. <strong className="text-saffron">It is not a replacement for professional medical diagnosis or immediate crisis intervention.</strong>
+           <strong className="text-white uppercase tracking-wider">Disclaimer:</strong> Ojas AI provides educational insights based on traditional Ayurvedic texts and broad psychological frameworks. <strong className="text-primary">It is not a replacement for professional medical diagnosis or immediate crisis intervention.</strong>
         </p>
       </div>
 
